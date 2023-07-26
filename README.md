@@ -1,4 +1,4 @@
-<font size=7 >项目名称：基于OneNET服务器的LED阵列游戏的数字孪生系统</font>
+****项目名称：基于OneNET服务器的LED阵列游戏的数字孪生系统****
 
 **1.** **技术方案**
 
@@ -41,7 +41,9 @@
 
 
 ②欢迎结束后，进入项目的初始界面。我们设计的游戏为一款吃豆人游戏，闪烁的LED表示吃豆人当前所在的位置，亮着的红灯代表地图上还没吃到的豆子，而灭了的LED则代表该点的豆子已经被吃到。如下图所示，游戏一开始吃豆人位于正中间的LED上：
+
 ![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/617c119e-4910-4732-b5b3-403987199ad3)
+
 ![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/3c5a4866-4f46-45df-9b08-d88b930b865e)
 
 
@@ -50,22 +52,27 @@
 ![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/f37a8d70-b503-4a0c-86d2-712c1599fec4)
 
 
-③如下图所示，可以通过OneNET云平台的数字可视化平台的四个虚拟按键以数字孪生的形式对吃豆人进行控制，也可以通过轻触按键进行控制，吃豆人的移动规则见1.6操作指南。：
+③如下图所示，可以通过OneNET云平台的数字可视化平台的四个虚拟按键以数字孪生的形式对吃豆人进行控制，也可以通过轻触按键进行控制，吃豆人的移动规则见1.6操作指南：
+
 ![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/279f9aca-f500-4a01-8785-18accf770fd4)
+
 ![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/3549f177-c86d-4ffd-8e02-6096585d926f)
 
 
 如下图所示，当控制吃豆人向左移动时，LCD显示LEFT，吃豆人移动到新的位置上，原位置的LED熄灭：
+
 ![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/85ca6405-745c-4afc-887e-8113d53e72a5)
 
 
 若通过OneNET云平台的数字可视化平台的四个虚拟按键以数字孪生的形式对吃豆人进行控制，终端上还会显示该操作：
 
-![img](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image026.gif)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/0e1e8815-10e5-4744-bad2-e31e32b1ffc4)
+
 
 ④如下图所示，当吃豆人将地图上全部的豆子都吃完后，LED阵列和LCD将展示通关动画，并自动复位开启下一把游戏：
 
 ![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/3332defd-6b09-4c13-a040-b5b858fc3c96)
+
 ![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/aa69c1c7-ad8b-443c-8911-26d3961ef12d)
 
  
@@ -722,9 +729,12 @@ LED阵列在开发板中的位置以及对应的ID号如下图所示：
 
  
 
-**2.**2. **人员分配**
+**2.** **人员分配**
+
 何思成：OneNET云平台的数字可视化平台和程序接口的设计、以及多协议接入的准备
+
 林扬航：源程序的设计，主要包括轻触按键的线程、LED阵列变化的线程等
+
 张旭泽：资料收集、PPT展示、视频拍摄等
 
  
