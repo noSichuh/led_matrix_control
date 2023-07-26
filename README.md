@@ -1,4 +1,4 @@
-<font size=5 >项目名称：基于OneNET服务器的LED阵列游戏的数字孪生系统</font>
+<font size=7 >项目名称：基于OneNET服务器的LED阵列游戏的数字孪生系统</font>
 
 **1.** **技术方案**
 
