@@ -1,28 +1,23 @@
-**RT-Thread**       夏令营实践作品设计文档
-
-**组号:24**        **项目名称：基于OneNET服务器的LED阵列游戏的数字孪生系统**
-
+<font size=5 >项目名称：基于OneNET服务器的LED阵列游戏的数字孪生系统</font>
 **1.** **技术方案**
 
 **1.1 外设与软件包的使用**
 
 本项目使用到的外设有19灯等距全彩LED、4个轻触按键、240*240并行LCD和RW007高速wifi。需要对板载设备驱动进行如下配置：
 
-![img](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image002.gif)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/dfe4b3ec-0913-4316-a81f-45f886241e9c)
+
 
 本项目使用到的软件包有RW007高速WiFi模块驱动、OneNET连接中国移动云平台以及它的依赖包cJSON和Paho MQTT。需要对RW007的引脚和OneNET的产品和设备信息进行如下配置：
 
-![img](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image004.gif)
-
-![img](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image006.gif)
-
- 
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/f684cb00-396c-4e94-8cf3-2fa8accfcdf2)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/2cb83435-f9b4-4b37-ac78-9aa498f1f8b6)
 
 **1.2 程序框架**
 
 如下图所示，本项目的目的为实现轻触按键和数字孪生对LCD与LED阵列的控制：
 
-![41f4953b1e926f54ea9361b63676a40](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image008.gif)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/8c2ea4ab-d3b3-41c3-8d6d-aedb0219cdd9)
 
 系统创新性：实现了PC端与开发板之间的软硬件同步协同，可以认为构建了单片机按钮功能的数字孪生模型
 
@@ -40,23 +35,28 @@
 
 ①开发板上电后，利用LED阵列和LCD实现项目的欢迎动画展示：
 
-![d2d490d57eed4be419715b2280dc55d](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image010.gif)![86c8798af3a7dd45a0f6529c568e405](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image012.gif)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/00f27297-93bc-4b94-b06c-684d008f118b)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/c8060ae4-bcd6-44c6-95bd-53d101c9ea94)
+
 
 ②欢迎结束后，进入项目的初始界面。我们设计的游戏为一款吃豆人游戏，闪烁的LED表示吃豆人当前所在的位置，亮着的红灯代表地图上还没吃到的豆子，而灭了的LED则代表该点的豆子已经被吃到。如下图所示，游戏一开始吃豆人位于正中间的LED上：
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/617c119e-4910-4732-b5b3-403987199ad3)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/3c5a4866-4f46-45df-9b08-d88b930b865e)
 
-![7e1b019846aa5a5d66d3ebc602c0093](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image014.gif)![7f08c9df95780ebf77ae871c5c3fb91](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image016.gif)
 
 打开RT-Thread Studio终端，显示WIFI已自动连接好、mqtt协议已初始化且onenet指针已分配好空间：
 
-![img](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image018.gif)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/f37a8d70-b503-4a0c-86d2-712c1599fec4)
+
 
 ③如下图所示，可以通过OneNET云平台的数字可视化平台的四个虚拟按键以数字孪生的形式对吃豆人进行控制，也可以通过轻触按键进行控制，吃豆人的移动规则见1.6操作指南。：
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/279f9aca-f500-4a01-8785-18accf770fd4)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/3549f177-c86d-4ffd-8e02-6096585d926f)
 
-![img](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image020.gif)![board](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image022.gif)
 
 如下图所示，当控制吃豆人向左移动时，LCD显示LEFT，吃豆人移动到新的位置上，原位置的LED熄灭：
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/85ca6405-745c-4afc-887e-8113d53e72a5)
 
-![74bf22221fd3d3ced1d66b939a51c9a](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image024.gif)
 
 若通过OneNET云平台的数字可视化平台的四个虚拟按键以数字孪生的形式对吃豆人进行控制，终端上还会显示该操作：
 
@@ -64,7 +64,8 @@
 
 ④如下图所示，当吃豆人将地图上全部的豆子都吃完后，LED阵列和LCD将展示通关动画，并自动复位开启下一把游戏：
 
-![a8977656bc005417add7c60ba1b9b82](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image028.gif)![295cde2f0341ecc2c06be10e61676e1](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image030.gif)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/3332defd-6b09-4c13-a040-b5b858fc3c96)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/aa69c1c7-ad8b-443c-8911-26d3961ef12d)
 
  
 
@@ -671,9 +672,11 @@ int main (void)
 
 如下图所示，设计了OneNET云平台的数字可视化平台界面，将开关的开启和关闭指令分别设置为left、down、right和up，通过多协议接入连接到开发板上。
 
-![img](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image032.gif)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/3146b26b-88bf-4db2-a3d1-951eb9d83805)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/7dd94cbb-5a08-4da5-a269-8229a81641d1)
 
-![img](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image034.gif)
+
+
 
  
 
@@ -681,11 +684,14 @@ int main (void)
 
 如下图所示，LED阵列使用的是SK6805 RGB三色LED, 由19个LED组成，驱动时使用串行信号。
 
-![led_matrix](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image036.gif)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/7023fe8a-18be-415a-a091-96592c89a994)
+
 
 LED阵列在开发板中的位置以及对应的ID号如下图所示：
 
-![board](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image037.gif) ![966b82f91520ec48de593d7d78c0905](file:////Users/jojo/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image039.gif)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/a5a46821-a12a-4a4b-b881-4e7e86281169)
+![image](https://github.com/noSichuh/led_matrix_control/assets/104688149/208bf24a-5f8b-4321-a034-8012872597f3)
+
 
 按键对LED阵列的控制方式如下表所示（X表示无法通过）：
 
@@ -715,10 +721,10 @@ LED阵列在开发板中的位置以及对应的ID号如下图所示：
 
  
 
-2. **人员分配
-   ** 何思成：OneNET云平台的数字可视化平台和程序接口的设计、以及多协议接入的准备
-    林扬航：源程序的设计，主要包括轻触按键的线程、LED阵列变化的线程等
-    张旭泽：资料收集、PPT展示、视频拍摄等
+**2.**2. **人员分配**
+何思成：OneNET云平台的数字可视化平台和程序接口的设计、以及多协议接入的准备
+林扬航：源程序的设计，主要包括轻触按键的线程、LED阵列变化的线程等
+张旭泽：资料收集、PPT展示、视频拍摄等
 
  
 
